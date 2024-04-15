@@ -7,10 +7,22 @@
   <body>
     <div class="container">
       <h1>Random jokes</h1>
-      <button class="next">Next Joke</button>
       <div class="jokes"></div>
+      <button class="next">Next Joke</button>
+      <label for="joke">Choose a score:</label>
+      <form action="">
+        <select name="joke" id="cars">
+          <option id="score" value="1">1</option>
+          <option id="score" value="2">2</option>
+          <option id="score" value="3">3</option>
+        </select>
+        <br /><br />
+        <input type="submit" value="Submit" onclick="scoreJokes()" />
+      </form>
     </div>
-    
+    <div class="label"></div>
+
     <script src="./build/ejercicio_1.js"></script>
+    
   </body>
 </html>
