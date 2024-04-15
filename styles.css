@@ -20,7 +20,7 @@ body {
  text-align: center; 
 }
 
-h1{
+.title{
     text-align: center;
     font-size: 50px;
     background-color: aqua;
@@ -60,4 +60,17 @@ input{
   font-size:50px;
   background-color: rgb(43, 137, 226)
 
+}
+
+#wheater_container{
+  background: rgba(255, 255, 255, 0.3);
+  max-width: 400px;
+  height: 300px;
+  padding: 20px;
+  border-color: black;
+
+}
+
+img{
+  width:150px
 }
