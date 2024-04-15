@@ -1,6 +1,19 @@
-var button = document
+/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/
+let currentApi = 1
+
+let button = document
   .querySelector(".next")
-  ?.addEventListener("click", randomJoke);
+  ?.addEventListener("click", () =>{
+    if(currentApi === 1){
+        randomJoke();
+        currentApi = 2
+    }else if(currentApi === 2){
+        randomChuck()
+        currentApi = 1
+    }else{
+        currentApi = 2
+    }
+  });
 
 function randomJoke() {
   let config = {
@@ -13,7 +26,7 @@ function randomJoke() {
     .then((res) => res.json())
     .then((data) => {
       const joke = data.joke;
-      console.log(joke);
+      
       const randomJoke = document.querySelector(".jokes");
       if (randomJoke) {
         randomJoke.innerHTML = joke;
@@ -24,6 +37,27 @@ function randomJoke() {
 }
 
 randomJoke();
+
+/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/
+function randomChuck() {
+    let chuckJokes = fetch("https://api.chucknorris.io/jokes/random")
+.then((res) => res.json())
+.then((data) => {
+    const norrisJokes = data.value
+    console.log(norrisJokes)
+    const randomJoke  = document.querySelector(".jokes");
+    if (randomJoke) {
+        randomJoke.innerHTML = norrisJokes;
+      }
+})
+
+return chuckJokes;
+}
+
+
+randomChuck()
+
+
 
 /*--------------------------------------------------Ejercicio #3------------------------------------------------------------------------------*/
 

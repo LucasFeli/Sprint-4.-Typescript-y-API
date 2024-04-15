@@ -1,7 +1,21 @@
 "use strict";
 var _a;
-var button = (_a = document
-    .querySelector(".next")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", randomJoke);
+/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/
+let currentApi = 1;
+let button = (_a = document
+    .querySelector(".next")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    if (currentApi === 1) {
+        randomJoke();
+        currentApi = 2;
+    }
+    else if (currentApi === 2) {
+        randomChuck();
+        currentApi = 1;
+    }
+    else {
+        currentApi = 2;
+    }
+});
 function randomJoke() {
     let config = {
         headers: {
@@ -12,7 +26,6 @@ function randomJoke() {
         .then((res) => res.json())
         .then((data) => {
         const joke = data.joke;
-        console.log(joke);
         const randomJoke = document.querySelector(".jokes");
         if (randomJoke) {
             randomJoke.innerHTML = joke;
@@ -21,6 +34,21 @@ function randomJoke() {
     return jokes;
 }
 randomJoke();
+/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/
+function randomChuck() {
+    let chuckJokes = fetch("https://api.chucknorris.io/jokes/random")
+        .then((res) => res.json())
+        .then((data) => {
+        const norrisJokes = data.value;
+        console.log(norrisJokes);
+        const randomJoke = document.querySelector(".jokes");
+        if (randomJoke) {
+            randomJoke.innerHTML = norrisJokes;
+        }
+    });
+    return chuckJokes;
+}
+randomChuck();
 let reportAcudits = [];
 function scoreJokes() {
     let scoreSelect = document.querySelector("#score");
@@ -45,7 +73,7 @@ function kelvinToCelsius(kelvin) {
     return kelvin - 273.15;
 }
 function weatherAPI() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=${API_Key}2`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=${API_Key}`)
         .then((res) => res.json())
         .then((data) => {
         const weathercity = (data.name = "Barcelona");
@@ -64,3 +92,4 @@ function weatherAPI() {
     });
 }
 weatherAPI();
+/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/ 
