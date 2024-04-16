@@ -83,7 +83,7 @@ function scoreJokes() {
             score: score,
             date: new Date().toISOString()
         };
-
+        console.log('after',  randomJoke());
         reportAcudits.push(newJokes);
 
         console.log('linea de nuevos chistes', reportAcudits);
@@ -108,7 +108,7 @@ function kelvinToCelsius(kelvin : number) {
 
 function weatherAPI() {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=${API_Key}`
+    `https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=${API_key}`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -125,7 +125,7 @@ function weatherAPI() {
         <h2>${description}</h2>
         `;
 
-        console.log(data)
+       
     });
 
     

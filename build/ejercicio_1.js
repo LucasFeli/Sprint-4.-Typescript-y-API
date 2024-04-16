@@ -59,6 +59,7 @@ function scoreJokes() {
             score: score,
             date: new Date().toISOString()
         };
+        console.log('after', randomJoke());
         reportAcudits.push(newJokes);
         console.log('linea de nuevos chistes', reportAcudits);
     })
@@ -73,7 +74,7 @@ function kelvinToCelsius(kelvin) {
     return kelvin - 273.15;
 }
 function weatherAPI() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=${API_Key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=barcelona&appid=77d70ead7131642b47e52de1fe9f96a2`)
         .then((res) => res.json())
         .then((data) => {
         const weathercity = (data.name = "Barcelona");
@@ -88,7 +89,6 @@ function weatherAPI() {
         <h3>${weather} ºC</h3>
         <h2>${description}</h2>
         `;
-        console.log(data);
     });
 }
 weatherAPI();
