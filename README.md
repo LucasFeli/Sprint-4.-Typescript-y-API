@@ -29,5 +29,5 @@ $ git remote add origin <your repo name!>
 ```
 # Notas
 
-La API utilizada para el clima es https://api.openweathermap.org, por motivos de limitacion de peticiones, no comparto la APIKEY, por este motivo cuando encuentre esta variable (${API_key}), por favor reemplazarla por la que usted obtenga.
+La API utilizada para el clima es https://api.openweathermap.org, por motivos de limitacion de peticiones, no comparto la APIKEY, por este motivo cuando encuentre esta variable (${API_key}), por favor reemplazarla por la APIKEY que usted obtenga de la pagina web mencionada.
 
