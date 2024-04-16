@@ -51,19 +51,19 @@ function randomChuck() {
 randomChuck();
 let reportAcudits = [];
 function scoreJokes() {
-    let scoreSelect = document.querySelector("#score");
+    let scoreSelect = document.querySelector('#score');
     let score = parseInt(scoreSelect.value);
-    randomJoke()
-        .then((joke) => {
+    randomJoke().then((joke) => {
         let newJokes = {
             joke: joke,
             score: score,
-            date: new Date().toISOString(),
+            date: new Date().toISOString()
         };
         reportAcudits.push(newJokes);
+        console.log('linea de nuevos chistes', reportAcudits);
     })
         .catch((error) => {
-        console.error("Error getting joke:", error);
+        console.error('Error getting joke:', error);
     });
 }
 scoreJokes();
@@ -92,4 +92,3 @@ function weatherAPI() {
     });
 }
 weatherAPI();
-/*--------------------------------------------------Ejercicio #5------------------------------------------------------------------------------*/ 

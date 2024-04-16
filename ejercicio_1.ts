@@ -69,24 +69,33 @@ type Jokes = {
 
 let reportAcudits: Jokes[] = [];
 
+
+
 function scoreJokes() {
-  let scoreSelect = document.querySelector("#score") as HTMLSelectElement;
-  let score = parseInt(scoreSelect.value);
+    let scoreSelect = document.querySelector('#score') as HTMLSelectElement;
+    let score = parseInt(scoreSelect.value)
+  
+    randomJoke().then((joke) => {
+        
 
-  randomJoke()
-    .then((joke) => {
-      let newJokes: Jokes = {
-        joke: joke,
-        score: score,
-        date: new Date().toISOString(),
-      };
+        let newJokes: Jokes = {
+            joke: joke,
+            score: score,
+            date: new Date().toISOString()
+        };
 
-      reportAcudits.push(newJokes);
+        reportAcudits.push(newJokes);
+
+        console.log('linea de nuevos chistes', reportAcudits);
     })
     .catch((error) => {
-      console.error("Error getting joke:", error);
+        console.error('Error getting joke:', error);
     });
+
 }
+
+
+
 
 scoreJokes();
 
